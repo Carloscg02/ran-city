@@ -18,9 +18,11 @@
 - **[`decisions/index.md`](decisions/index.md)** - Sub-indice de decisiones tecnicas irreversibles (ADRs). Consultar solo ante decisiones arquitectonicas.
 - **[`VISION.md`](../../VISION.md)** - Vision funcional del producto ("Zoom de Escala + Sandbox What-If") y reparto humano/agente.
 - **[`SYLLABUS_MAP.md`](../SYLLABUS_MAP.md)** - Radar vivo de cobertura de los 9 bloques del temario 5G (`T1`–`T9`).
+- **[`course-notes/`](../course-notes/)** - Requisitos y apuntes tecnicos de asignatura universitaria (entrada normativa para specs).
 - **[`REFERENCES.md`](../REFERENCES.md)** - Ecosistema, librerias oraculo, fuentes de datos de Espana y patrones MapLibre/deck.gl.
 
 ---
 
 ## 3. Modulos del Sistema (`modules/`)
 Registro de fichas tecnicas de cada modulo implementado en el proyecto.
+- **[`rf-antenna-and-propagation-engine.md`](modules/rf-antenna-and-propagation-engine.md)** - Mallado `5m/12m/50m`, antenas `UPA` 3GPP TR 38.901 y matrices desacopladas de propagacion (`UMa`/`UMi`) y cobertura `SS-RSRP`.

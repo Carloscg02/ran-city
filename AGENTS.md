@@ -38,4 +38,5 @@
 
 ## 6. Pacto Pedagogico y Rigor de Dominio 5G
 - **Cero Cajas Negras en Dominio**: Antes de escribir ecuaciones o maquinas de estado 5G (`radio`, `antenna`, `air_interface`, `protocols`, `mobility`, `kpis`), explicar el concepto fisico/protocolar, citar la fuente publica exacta (3GPP / ITU-R / libro) y dejar que el usuario lo implemente o valide linea a linea (ver `docs/brain/architecture.md`).
-- **Seguimiento Curricular**: Al completar un modulo, actualizar [`docs/SYLLABUS_MAP.md`](docs/SYLLABUS_MAP.md) y proponer plantilla en `docs/learning/` junto con preguntas de comprobacion.
+- **Apuntes de Asignatura (`docs/course-notes/`)**: Si existen documentos activos en `docs/course-notes/` para el area bajo diseno, tratarlos como requisito normativo antes de cerrar cualquier `spec.md`.
+- **Seguimiento Curricular**: Al completar un modulo, actualizar [`docs/SYLLABUS_MAP.md`](docs/SYLLABUS_MAP.md), generar guia didactica en `guides/<slug>-GUIDE.md` (`mentor-guide`) bajo demanda y plantear preguntas cualitativas de comprobacion.

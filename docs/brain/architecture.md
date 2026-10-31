@@ -30,9 +30,10 @@ Comandos oficiales de verificacion ejecutados por el subagente constructor en ca
 2. **Frontera Estricta de Coordenadas (CRS)**:
    - Todo calculo metrico 2D/3D de propagacion, distancias y perfiles de terreno en Espana peninsular opera en **`EPSG:25830` (ETRS89 / UTM zona 30N, metros)**.
    - La proyeccion **`EPSG:4326` (`[lon, lat]`)** se utiliza exclusivamente en las fronteras de importacion y de salida HTTP/GeoJSON/UI.
-3. **Transporte WebGL de Cobertura (Cero GeoJSON Masivos)**:
-   - Prohibido serializar rejillas de cobertura como decenas de miles de poligonos GeoJSON.
-   - Las capas de rejilla (`RSRP`, `SINR`, mejor servidor) se evaluan vectorizadas en `NumPy` y se sirven como rasters ligeros (`PNG` RGBA + *bounding box* WGS84) renderizados en GPU con `deck.gl BitmapLayer` (`interleaved: true` sobre MapLibre + `OpenFreeMap` / `PMTiles`). Este mismo formato alimenta tanto el modo FastAPI vivo como el snapshot estatico de portfolio.
+3. **Motor Matricial sobre Mallado por Zona y Transporte WebGL**:
+   - La cobertura nunca se calcula con `FSPL` simple ni punto a punto suelto, sino sobre mallas regulares `ScenarioGrid` en `EPSG:25830` cuya resolucion se fija por zona (`5 m` Denso, `12 m` Urbano, `50 m` Rural; ver `docs/course-notes/001_propagacion_mallado_T2.md`).
+   - El calculo desacopla por celda la **Matriz de Propagacion Isotropa** (`L_prop` con **3GPP TR 38.901 `UMa`/`UMi-Street Canyon`** y parametros `CalibrationParams` listos para *Drive Test*) de la **Matriz Directiva de Antena** (`G_ant` con tilts mecanico/electrico), permitiendo recalcular cambios de tilt en milisegundos.
+   - Prohibido serializar rejillas de cobertura como decenas de miles de poligonos GeoJSON: las matrices `NumPy` se sirven como rasters ligeros (`PNG` RGBA + *bounding box* WGS84) renderizados en GPU con `deck.gl BitmapLayer` (`interleaved: true` sobre MapLibre + `OpenFreeMap` / `PMTiles`). Este mismo formato alimenta tanto el modo FastAPI vivo como el snapshot estatico de portfolio.
 4. **Doble Validacion Fisica (Tablas 3GPP + `Hypothesis`)**:
    - Cada formula cita en su docstring la especificacion publica exacta (ej. `3GPP TR 38.901 v17.1.0, Table 7.3-1`).
    - Los tests combinan **casos puntuales calculados a mano / especificacion** con **Property-Based Testing (`hypothesis`)** verificando monotonia, cotas fisicas en dB, invariancia rotacional y degradacion monotona ante interferencia.

@@ -5,7 +5,7 @@
 **Leyenda de estado**:
 - `[ ]` Pendiente
 - `[~]` En estudio / especificación activa
-- `[x]` Implementado y validado con tests + apuntes en `docs/learning/`
+- `[x]` Implementado y validado con tests + guía en `guides/`
 
 **Leyenda de vía en `RAN-city`**:
 - **Hilo Principal**: Forma parte del núcleo *Zoom de Escala* sobre Jaén (`Fase 1–5`).
@@ -17,8 +17,8 @@
 
 | Bloque | Título | Vía Inicial | Inspector / Módulo Objetivo | Progreso |
 |---|---|---|---|---|
-| **T4** | Antenna Systems | **Hilo Principal (Arranque)** | Inspector Antena (`M1`) + Cobertura (`M2`) | `0 / 4` |
-| **T1** | Air Interface | **Hilo Principal** | Link Budget (`M2`) + Inspector Celda PHY (`M3`) | `0 / 10` |
+| **T4** | Antenna Systems | **Hilo Principal (Arranque)** | Inspector Antena (`M1`) + Cobertura (`M2`) | `2 / 4` |
+| **T1** | Air Interface | **Hilo Principal** | Link Budget (`M2`) + Inspector Celda PHY (`M3`) | `1.5 / 10` |
 | **T2** | RAN Protocol & Procedures | **Hilo Principal (Movilidad/RRC) + Lab** | UE en Ruta (`M5`) + Inspector Protocolos (`M4`) | `0 / 8` |
 | **T7** | Multi-layer Coordination & Load Balancing | **Hilo Principal** | Multicapa `n28`/`n78` y Movilidad (`M5`) | `0 / 4` |
 | **T3** | NR KPIs | **Hilo Principal** | Inspector Operación y KPIs (`M6`) | `0 / 7` |
@@ -32,14 +32,14 @@
 ## Detalle Punto por Punto
 
 ### T4. Antenna Systems *(Punto de arranque junto a T1 base)*
-- [ ] **Fundamentos**: ganancia, directividad, *beamwidth*, patrón de radiación (3GPP TR 38.901), lóbulos, polarización, VSWR, *front-to-back* — *(Hilo Principal: `M1`)*
-- [ ] **Tipos de tilt**: mecánico, eléctrico y digital/de haz, e impacto directo en cobertura e interferencia — *(Hilo Principal: `M1` + `M2`)*
+- [x] **Fundamentos**: ganancia, directividad, *beamwidth*, patrón de radiación (3GPP TR 38.901), lóbulos, polarización, VSWR, *front-to-back* — *(Completado en Python: `Spec 001`, pendiente vista interactiva en `M1`)*
+- [x] **Tipos de tilt**: mecánico, eléctrico y digital/de haz, e impacto directo en cobertura e interferencia — *(Completado en Python: `Spec 001`)*
 - [ ] **Massive MIMO**: SU/MU-MIMO, capas, beamforming analógico/digital/híbrido, configuraciones `TxRx`, CSI vs reciprocidad, haces `SSB` vs tráfico — *(Hilo Principal: `M1` evolución)*
 - [ ] **AAS avanzado**: planificación y diseño RF con AAS (cobertura vs capacidad, *link budget*) — *(Hilo Principal: `M1` + `M2`)*
 
 ### T1. Air Interface
-- [ ] **Espectro (base)**: FR1 / FR2, bandas NR españolas (`n28`, `n78`, `n258`), anchos de banda — *(Hilo Principal: `M0`/`M2`)*
-- [ ] **Rendimiento y Link Budget (base)**: potencia recibida (`RSRP`), ruido térmico, interferencia co-canal (`SINR`), throughput y eficiencia espectral — *(Hilo Principal: `M2` + `M3`)*
+- [x] **Espectro (base)**: FR1 / FR2, bandas NR españolas (`n28`, `n78`, `n258`), anchos de banda — *(Completado base en `Spec 001`; CA/DC/DSS en `M3+`)*
+- [~] **Rendimiento y Link Budget (base)**: potencia recibida (`RSRP` por `RE` y `Best Server` listos en `Spec 001`), pendiente ruido térmico, interferencia co-canal (`SINR`), throughput y eficiencia espectral — *(Hilo Principal: `Spec 002` + `M3`)*
 - [ ] **Numerología**: *subcarrier spacing* (`15/30/60/120 kHz`), slots, símbolos, mini-slots, *resource grid*, `RE`, `RB` — *(Hilo Principal: `M3`)*
 - [ ] **Duplexado**: FDD vs TDD, patrones TDD, *slot formats*, SUL *(ampliación)* — *(Hilo Principal: `M3`)*
 - [ ] **Modulación y adaptación de enlace**: `QPSK` → `256QAM`, tablas `MCS`, `CQI`, `BLER` objetivo — *(Hilo Principal: `M3`)*

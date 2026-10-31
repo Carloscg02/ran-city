@@ -42,7 +42,7 @@ Su metáfora central es un **"Zoom de Escala + Sandbox What-If"**:
 | **Frontend ligero y rápido** | TypeScript + React + MapLibre GL JS + `deck.gl` (`BitmapLayer` raster sobre `OpenFreeMap` / `PMTiles`). Cero lógica física duplicada en TS y cero rejillas masivas en GeoJSON. |
 | **Primero correcto, luego bonito** | Cada fórmula cita su sección 3GPP/ITU y se valida con tests de valores de referencia + *Property-Based Testing* (`hypothesis`). |
 | **Explicable** | Cada inspector incluye cápsulas concisas del *"por qué físico / estándar"* para servir tanto de herramienta de repaso como de portfolio autoexplicativo. |
-| **Documentar lo aprendido** | Cada módulo genera apuntes propios en `docs/learning/<modulo>.md` (y guías opcionales en `guides/`). |
+| **Documentar lo aprendido** | Cada hito se acompaña de guías didácticas cualitativas en `guides/<slug>-GUIDE.md` (`mentor-guide`) y preguntas de comprobación conceptual. |
 
 ---
 
@@ -128,7 +128,7 @@ RAN-city/
 │   ├── brain/                     # Memoria jerárquica viva de Compass (index, architecture, handoff, decisions, design)
 │   ├── SYLLABUS_MAP.md            # Seguimiento completo de los 9 bloques T1–T9
 │   ├── REFERENCES.md              # Ecosistema, librerías oráculo y referencias 3GPP/GIS
-│   └── learning/                  # Apuntes propios (<modulo>.md) escritos al cerrar cada hito
+│   └── course-notes/              # Apuntes y requisitos técnicos de asignatura universitaria
 ├── specs/                         # Especificaciones SDD por feature (spec.md -> plan.md -> tasks.md)
 └── guides/                        # Guías didácticas bajo demanda generadas por mentor-guide
 ```
@@ -154,5 +154,5 @@ RAN-city/
 1. Antes de implementar lógica de dominio 5G, explicar el concepto físico/protocolar, citar las fuentes públicas (3GPP/ITU) y consensuar el diseño en `spec.md` / `plan.md`.
 2. Prohibido inventar constantes o fórmulas: citar siempre sección/tabla o declarar explícitamente cualquier simplificación asumida.
 3. Nada de información confidencial ni marcas comerciales de operadores.
-4. Al cerrar cada módulo: actualizar [`docs/SYLLABUS_MAP.md`](docs/SYLLABUS_MAP.md), generar plantilla en `docs/learning/<modulo>.md` para que yo la redacte con mis palabras, y plantearme preguntas de comprobación conceptual.
+4. Al cerrar cada módulo: actualizar [`docs/SYLLABUS_MAP.md`](docs/SYLLABUS_MAP.md), generar guía didáctica intuitiva en `guides/<slug>-GUIDE.md` si se solicita, y plantearme preguntas cualitativas de comprobación conceptual.
 5. Registrar decisiones arquitectónicas relevantes como ADRs en [`docs/brain/decisions/`](docs/brain/decisions/index.md).
