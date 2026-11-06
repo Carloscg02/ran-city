@@ -1,6 +1,6 @@
 # Handoff del Proyecto: `RAN-city`
 
-- **Estado Actual**: `Spec 001` (`001-rf-core-and-antenna-38901`) completada y verificada (`5/5` tareas `[x]`, `38 passed` en `pytest`, `0` alertas en `ruff`).
-- **Ultima Tarea**: Cerradas Tareas 4 y 5 (`radio/tr38901.py` y `radio/coverage.py`), ficha `modules/rf-antenna-and-propagation-engine.md`, `SYLLABUS_MAP.md` y guia `guides/001-rf-core-and-antenna-GUIDE.md`.
-- **Siguiente Paso**: Revisar las 3 preguntas conceptuales de cierre, consolidar el commit de `Spec 001` y acordar el alcance de `Spec 002` (p. ej., `SINR`/ruido termico + ingesta GIS de Jaen o laboratorio visual de Antena).
-- **Bloqueos Activos**: Ninguno.
+- **Estado Actual**: `Spec 001` completada, testeada (`38 passed`) y sincronizada en Git remoto (`9c51704`).
+- **Ultima Tarea**: Creada `guides/001-rf-core-and-antenna-GUIDE.md` y limpiado `docs/learning/`.
+- **Siguiente Paso (Nuevo Chat / Spec 002)**: Arrancar `Spec 002`: completitud del Link Budget 5G (`SINR` con suma lineal de interferencia co-canal en `mW`, ruido térmico $k T B F$ y *shadow fading*) + ingesta GIS de Jaén (`data/cities/jaen.yaml`, OpenCelliD `MCC=214`, mástiles OSM y terreno `MDT05` CNIG).
+- **Bloqueos Activos**: Ninguno. (Las preguntas conceptuales de Spec 001 quedan pausadas en este chat para retomar cuando el usuario lo desee).
