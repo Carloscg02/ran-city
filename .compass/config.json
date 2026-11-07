@@ -1,0 +1,14 @@
+{
+  "project_name": "RAN-city",
+  "project_goal": "Simulador interactivo y laboratorio educativo de redes 5G RAN sobre Jaen (Zoom de escala: Ciudad -> Antena -> Celda PHY -> UE/Movilidad -> KPIs, con red base estimada OpenCelliD/OSM y sandbox What-If)",
+  "tech_stack": "Python 3 (venv, FastAPI, Pydantic, NumPy/SciPy, GeoPandas, Pytest + Hypothesis) + TypeScript, React, Vite, MapLibre GL, deck.gl",
+  "domain": "5G NR Radio Access Network (3GPP Physical Layer, Antenna Systems TR 38.901, RF Propagation, RAN Protocols & PM KPIs)",
+  "architecture_style": "hexagonal",
+  "model_strategy": "subagent-fast",
+  "target_assistants": [
+    "antigravity"
+  ],
+  "test_command": "backend/.venv/bin/pytest backend/tests",
+  "lint_command": "backend/.venv/bin/ruff check backend",
+  "e2e_command": "N/A"
+}

@@ -13,12 +13,15 @@
 ## 2. Decisor de Carriles de Ejecucion
 - Carril 1: `ANSWER` - Preguntas de orientacion, explicaciones y diseno conceptual sin edicion de ficheros.
 - Carril 2: `FTD` (Fix-The-Docs) - Correcciones directas en documentacion, arquitectura o handoff sin codigo de produccion.
-- Carril 3: `SDD` (Spec-Driven Development) - Desarrollo de features o refactors guiado por especificacion formal (`spec.md` -> `plan.md` -> `tasks.md` -> TDD estricto).
+- Carril 3: `SDD` (Spec-Driven Development) - Flujo formal en 6 pasos: `spec.md` -> `plan.md` -> `tasks.md` -> `TDD Implementation` (Builder) -> `Independent Audit Gate` (Auditor read-only: `APPROVED` | `REQUEST_CHANGES`) -> `Brain Consolidation & Guide` (Main).
 
 ---
 
 ## 3. Estrategia de Modelos y Delegacion
-- Delegacion en Subagentes Ligeros (`subagent-fast`): Delega tareas de exploracion y construccion TDD en subagentes con modelo rapido (`flash` / fast tier) para mantener el contexto principal limpio.
+- Delegacion en Subagentes Ligeros (`subagent-fast`) - Triada de roles:
+  1. Main Agent (Orquestador / Arquitecto / Mentor): Contexto principal y coordinacion.
+  2. Builder Subagent (Constructor TDD): Modelo rapido (`flash` / fast tier) para el ciclo RED-GREEN-REFACTOR.
+  3. Auditor Subagent (Auditor Adversarial): Estrictamente read-only (`flash` por defecto, `pro` bajo demanda). Reporte por severidad y veredicto formal (`APPROVED` | `REQUEST_CHANGES`).
 
 ---
 
