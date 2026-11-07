@@ -137,9 +137,7 @@ def panel_gain_dbi(
     theta_steer = np.radians(90.0 + antenna.electrical_tilt_deg)
     phi_steer = np.radians(antenna.electrical_scan_deg)
 
-    delta_psi_v = (
-        2.0 * np.pi * antenna.d_v_wavelengths * (np.cos(theta_p) - np.cos(theta_steer))
-    )
+    delta_psi_v = 2.0 * np.pi * antenna.d_v_wavelengths * (np.cos(theta_p) - np.cos(theta_steer))
     delta_psi_h = (
         2.0
         * np.pi

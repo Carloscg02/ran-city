@@ -18,7 +18,7 @@
 | Bloque | Título | Vía Inicial | Inspector / Módulo Objetivo | Progreso |
 |---|---|---|---|---|
 | **T4** | Antenna Systems | **Hilo Principal (Arranque)** | Inspector Antena (`M1`) + Cobertura (`M2`) | `2 / 4` |
-| **T1** | Air Interface | **Hilo Principal** | Link Budget (`M2`) + Inspector Celda PHY (`M3`) | `1.5 / 10` |
+| **T1** | Air Interface | **Hilo Principal** | Link Budget (`M2`) + Inspector Celda PHY (`M3`) | `2.0 / 10` |
 | **T2** | RAN Protocol & Procedures | **Hilo Principal (Movilidad/RRC) + Lab** | UE en Ruta (`M5`) + Inspector Protocolos (`M4`) | `0 / 8` |
 | **T7** | Multi-layer Coordination & Load Balancing | **Hilo Principal** | Multicapa `n28`/`n78` y Movilidad (`M5`) | `0 / 4` |
 | **T3** | NR KPIs | **Hilo Principal** | Inspector Operación y KPIs (`M6`) | `0 / 7` |
@@ -39,7 +39,7 @@
 
 ### T1. Air Interface
 - [x] **Espectro (base)**: FR1 / FR2, bandas NR españolas (`n28`, `n78`, `n258`), anchos de banda — *(Completado base en `Spec 001`; CA/DC/DSS en `M3+`)*
-- [~] **Rendimiento y Link Budget (base)**: potencia recibida (`RSRP` por `RE` y `Best Server` listos en `Spec 001`), pendiente ruido térmico, interferencia co-canal (`SINR`), throughput y eficiencia espectral — *(Hilo Principal: `Spec 002` + `M3`)*
+- [~] **Rendimiento y Link Budget (base)**: potencia recibida (`RSRP` por `RE`, `Best Server`), ruido térmico ($k_B T_0 B F$), *Shadow Fading* 2D correlado y `SINR` co-canal en `mW` completados en `Spec 001` y `Spec 002`; pendiente cadena `SINR -> CQI/MCS -> Throughput` y eficiencia espectral en `M3` — *(Hilo Principal: `Spec 002` + `M3`)*
 - [ ] **Numerología**: *subcarrier spacing* (`15/30/60/120 kHz`), slots, símbolos, mini-slots, *resource grid*, `RE`, `RB` — *(Hilo Principal: `M3`)*
 - [ ] **Duplexado**: FDD vs TDD, patrones TDD, *slot formats*, SUL *(ampliación)* — *(Hilo Principal: `M3`)*
 - [ ] **Modulación y adaptación de enlace**: `QPSK` → `256QAM`, tablas `MCS`, `CQI`, `BLER` objetivo — *(Hilo Principal: `M3`)*

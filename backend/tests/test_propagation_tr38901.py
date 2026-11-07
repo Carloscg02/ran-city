@@ -3,6 +3,7 @@
 import math
 
 import numpy as np
+import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
@@ -13,8 +14,11 @@ from ran_city.radio.tr38901 import (
     CalibrationParams,
     PropagationMatrix,
     compute_propagation_matrix,
+    decorrelation_distance_m,
     los_probability,
     sample_los_mask,
+    sample_shadow_fading_map,
+    shadow_fading_std_db,
 )
 
 
@@ -99,7 +103,10 @@ class TestPathLossTR38901:
         d_bp = 4.0 * h_bs_eff * h_ut_eff * (3.5 * 1e9) / 299792458.0
         dh = 23.5
         expected_pl_los_1000 = (
-            28.0 + 40.0 * math.log10(d3d_1000) + 20.0 * math.log10(3.5) - 9.0 * math.log10(d_bp**2 + dh**2)
+            28.0
+            + 40.0 * math.log10(d3d_1000)
+            + 20.0 * math.log10(3.5)
+            - 9.0 * math.log10(d_bp**2 + dh**2)
         )
         assert math.isclose(prop_los.loss_db[0, idx_1000], expected_pl_los_1000, abs_tol=1e-4)
 
@@ -158,10 +165,20 @@ class TestPathLossTR38901:
         grid = ScenarioGrid.from_bounds(0.0, 0.0, 1000.0, 12.0, EnvironmentType.URBAN)
         geom = grid.geometry_from_tx(Point3D(0.0, 6.0, 25.0))
         prop_los = compute_propagation_matrix(
-            CellType.MACRO, freq_ghz=3.5, h_bs_m=25.0, h_ut_m=1.5, grid_geom=geom, los_mask=np.ones(grid.shape, dtype=bool)
+            CellType.MACRO,
+            freq_ghz=3.5,
+            h_bs_m=25.0,
+            h_ut_m=1.5,
+            grid_geom=geom,
+            los_mask=np.ones(grid.shape, dtype=bool),
         )
         prop_nlos = compute_propagation_matrix(
-            CellType.MACRO, freq_ghz=3.5, h_bs_m=25.0, h_ut_m=1.5, grid_geom=geom, los_mask=np.zeros(grid.shape, dtype=bool)
+            CellType.MACRO,
+            freq_ghz=3.5,
+            h_bs_m=25.0,
+            h_ut_m=1.5,
+            grid_geom=geom,
+            los_mask=np.zeros(grid.shape, dtype=bool),
         )
         # Loss must increase monotonically along the row with distance
         losses_los = prop_los.loss_db[0]
@@ -193,3 +210,120 @@ class TestPathLossTR38901:
             los_mask=np.zeros(grid.shape, dtype=bool),
         )
         assert np.all(prop_nlos.loss_db >= prop_los.loss_db - 1e-9)
+
+
+class TestShadowFadingTR38901:
+    """Tests for 3GPP TR 38.901 log-normal correlated 2D shadow fading (Table 7.4.1-1 & Table 7.5-6)."""
+
+    def test_shadow_fading_std_db_normative(self):
+        # 3GPP TR 38.901 Table 7.4.1-1
+        assert shadow_fading_std_db(CellType.MACRO, is_los=True) == 4.0
+        assert shadow_fading_std_db(CellType.MACRO, is_los=False) == 6.0
+        assert shadow_fading_std_db(CellType.MICRO, is_los=True) == 4.0
+        assert shadow_fading_std_db(CellType.MICRO, is_los=False) == 8.2
+        assert shadow_fading_std_db(CellType.PICO, is_los=True) == 4.0
+        assert shadow_fading_std_db(CellType.PICO, is_los=False) == 8.2
+
+    def test_decorrelation_distance_m_normative(self):
+        # 3GPP TR 38.901 Table 7.5-6
+        assert decorrelation_distance_m(CellType.MACRO, is_los=True) == 37.0
+        assert decorrelation_distance_m(CellType.MACRO, is_los=False) == 50.0
+        assert decorrelation_distance_m(CellType.MICRO, is_los=True) == 10.0
+        assert decorrelation_distance_m(CellType.MICRO, is_los=False) == 13.0
+        assert decorrelation_distance_m(CellType.PICO, is_los=True) == 10.0
+        assert decorrelation_distance_m(CellType.PICO, is_los=False) == 13.0
+
+    def test_sample_shadow_fading_map_reproducibility(self):
+        los_mask = np.ones((50, 50), dtype=bool)
+        sf1 = sample_shadow_fading_map(CellType.MACRO, los_mask, resolution_m=5.0, seed=42)
+        sf2 = sample_shadow_fading_map(CellType.MACRO, los_mask, resolution_m=5.0, seed=42)
+        sf3 = sample_shadow_fading_map(CellType.MACRO, los_mask, resolution_m=5.0, seed=99)
+
+        assert np.array_equal(sf1, sf2)
+        assert not np.array_equal(sf1, sf3)
+
+    def test_sample_shadow_fading_map_statistics_and_correlation(self):
+        # 120 x 120 grid with 5.0 m resolution
+        los_mask = np.ones((120, 120), dtype=bool)
+        sf_los = sample_shadow_fading_map(CellType.MACRO, los_mask, resolution_m=5.0, seed=9)
+
+        # LOS: sigma_sf = 4.0 dB
+        assert -0.5 <= float(np.mean(sf_los)) <= 0.5
+        assert abs(float(np.std(sf_los)) - 4.0) <= 0.6
+
+        # Spatial correlation between adjacent pixels along x
+        corr_x_los = np.corrcoef(sf_los[:, :-1].ravel(), sf_los[:, 1:].ravel())[0, 1]
+        assert corr_x_los > 0.7
+
+        # NLOS: sigma_sf = 6.0 dB
+        nlos_mask = np.zeros((120, 120), dtype=bool)
+        sf_nlos = sample_shadow_fading_map(CellType.MACRO, nlos_mask, resolution_m=5.0, seed=9)
+        assert -0.5 <= float(np.mean(sf_nlos)) <= 0.5
+        assert abs(float(np.std(sf_nlos)) - 6.0) <= 0.6
+        corr_x_nlos = np.corrcoef(sf_nlos[:, :-1].ravel(), sf_nlos[:, 1:].ravel())[0, 1]
+        assert corr_x_nlos > 0.7
+
+    def test_sample_shadow_fading_mixed_mask_and_boundary_unbiased_variance(self):
+        # Mixed mask: top half LOS (sigma=4.0), bottom half NLOS (sigma=6.0) on a 20x20 grid
+        mixed_mask = np.zeros((20, 20), dtype=bool)
+        mixed_mask[:10, :] = True
+
+        realizations = np.array(
+            [
+                sample_shadow_fading_map(CellType.MACRO, mixed_mask, resolution_m=5.0, seed=s)
+                for s in range(400)
+            ]
+        )
+        per_pixel_std = np.std(realizations, axis=0)
+
+        # Verify corners and interior match normative std without boundary reflection inflation
+        assert math.isclose(float(per_pixel_std[0, 0]), 4.0, abs_tol=0.35)
+        assert math.isclose(float(per_pixel_std[5, 10]), 4.0, abs_tol=0.35)
+        assert math.isclose(float(per_pixel_std[19, 19]), 6.0, abs_tol=0.45)
+        assert math.isclose(float(per_pixel_std[15, 10]), 6.0, abs_tol=0.45)
+
+    def test_sample_shadow_fading_validation(self):
+        los_mask = np.ones((10, 10), dtype=bool)
+        with pytest.raises(ValueError, match="resolution_m"):
+            sample_shadow_fading_map(CellType.MACRO, los_mask, resolution_m=0.0)
+        with pytest.raises(ValueError, match="resolution_m"):
+            sample_shadow_fading_map(CellType.MACRO, los_mask, resolution_m=-5.0)
+        with pytest.raises(ValueError, match="2D"):
+            sample_shadow_fading_map(CellType.MACRO, np.ones((10,), dtype=bool), resolution_m=5.0)
+
+    def test_compute_propagation_matrix_shadow_fading_integration(self):
+        grid = ScenarioGrid.from_bounds(0.0, 0.0, 100.0, 100.0, EnvironmentType.DENSE_URBAN)
+        geom = grid.geometry_from_tx(Point3D(50.0, 50.0, 25.0))
+
+        # Default: include_shadow_fading=False
+        prop_no_sf = compute_propagation_matrix(
+            CellType.MACRO,
+            freq_ghz=3.5,
+            h_bs_m=25.0,
+            h_ut_m=1.5,
+            grid_geom=geom,
+            seed=42,
+            include_shadow_fading=False,
+        )
+        assert hasattr(prop_no_sf, "shadow_fading_db")
+        assert np.all(prop_no_sf.shadow_fading_db == 0.0)
+
+        # Active: include_shadow_fading=True
+        prop_with_sf = compute_propagation_matrix(
+            CellType.MACRO,
+            freq_ghz=3.5,
+            h_bs_m=25.0,
+            h_ut_m=1.5,
+            grid_geom=geom,
+            seed=42,
+            include_shadow_fading=True,
+            resolution_m=5.0,
+        )
+        assert np.any(prop_with_sf.shadow_fading_db != 0.0)
+        # loss_db must be base_loss + shadow_fading_db
+        np.testing.assert_allclose(
+            prop_with_sf.loss_db,
+            prop_no_sf.loss_db + prop_with_sf.shadow_fading_db,
+            rtol=1e-5,
+            atol=1e-5,
+        )

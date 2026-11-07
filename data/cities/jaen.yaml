@@ -1,0 +1,2765 @@
+config:
+  city_id: jaen
+  city_name: Jaén
+  bbox_wgs84:
+  - -3.825
+  - 37.76
+  - -3.765
+  - 37.8
+  bbox_utm30:
+  - 427331.1495541786
+  - 4179507.4489468713
+  - 432652.54317221337
+  - 4183900.556955885
+  zones:
+  - zone_id: dense_urban
+    name: Casco Histórico y Centro Comercial
+    environment: dense_urban
+    description: Alta densidad urbana y cañones de calles (Catedral, Carrera, San
+      Ildefonso)
+  - zone_id: urban
+    name: Bulevar y Campus Las Lagunillas
+    environment: urban
+    description: Ensanche moderno, bulevar residencial y campus universitario
+  - zone_id: rural
+    name: Cerro de Santa Catalina y Vega Periurbana
+    environment: rural
+    description: Relieve pronunciado y entorno rural periurbano
+  operators:
+  - network_alias: Red A
+    mcc: 214
+    mnc: 7
+    cnaf_blocks:
+    - n28
+    - n78
+  - network_alias: Red B
+    mcc: 214
+    mnc: 1
+    cnaf_blocks:
+    - n28
+    - n78
+  - network_alias: Red C
+    mcc: 214
+    mnc: 3
+    cnaf_blocks:
+    - n28
+    - n78
+sites:
+- site_id: SITE_RED_A_01
+  network_alias: Red A
+  x_m: 431239.3124650831
+  y_m: 4183357.4510973576
+  ground_z_m: 426.0
+  sectors:
+  - sector_id: SITE_RED_A_01_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_01_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_01_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_01_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_01_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_01_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_01_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_01_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_01_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_A_02
+  network_alias: Red A
+  x_m: 431641.17847655975
+  y_m: 4182976.8451548647
+  ground_z_m: 442.0
+  sectors:
+  - sector_id: SITE_RED_A_02_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_02_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_02_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_02_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_02_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_02_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_02_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_02_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_02_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_A_03
+  network_alias: Red A
+  x_m: 427884.04430462496
+  y_m: 4182287.6665861257
+  ground_z_m: 470.9
+  sectors:
+  - sector_id: SITE_RED_A_03_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_03_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_03_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_03_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_03_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_03_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_03_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_03_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_03_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_A_04
+  network_alias: Red A
+  x_m: 430563.83095557103
+  y_m: 4181565.592753128
+  ground_z_m: 501.2
+  sectors:
+  - sector_id: SITE_RED_A_04_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_04_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_04_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_04_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_04_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_04_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_04_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_04_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_04_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_A_05
+  network_alias: Red A
+  x_m: 430620.2411259248
+  y_m: 4180943.750508368
+  ground_z_m: 558.4
+  sectors:
+  - sector_id: SITE_RED_A_05_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_05_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_05_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_05_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_05_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_05_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_05_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_05_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_05_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_A_06
+  network_alias: Red A
+  x_m: 429787.56847307476
+  y_m: 4180384.9175681393
+  ground_z_m: 795.2
+  sectors:
+  - sector_id: SITE_RED_A_06_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_06_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_06_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_06_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_06_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_06_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_A_06_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_A_06_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_A_06_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_B_01
+  network_alias: Red B
+  x_m: 432116.999459444
+  y_m: 4183017.2908418584
+  ground_z_m: 440.3
+  sectors:
+  - sector_id: SITE_RED_B_01_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_01_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_01_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_01_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_01_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_01_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_01_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_01_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_01_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_B_02
+  network_alias: Red B
+  x_m: 431496.5176806127
+  y_m: 4182523.118464359
+  ground_z_m: 461.0
+  sectors:
+  - sector_id: SITE_RED_B_02_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_02_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_02_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_02_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_02_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_02_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_02_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_02_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_02_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_B_03
+  network_alias: Red B
+  x_m: 428854.56845771027
+  y_m: 4182501.1414500605
+  ground_z_m: 462.0
+  sectors:
+  - sector_id: SITE_RED_B_03_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_03_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_03_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_03_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_03_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_03_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_03_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_03_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_03_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_B_04
+  network_alias: Red B
+  x_m: 429105.26029494574
+  y_m: 4180934.458381131
+  ground_z_m: 623.2
+  sectors:
+  - sector_id: SITE_RED_B_04_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_04_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_04_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_04_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_04_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_04_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_04_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_04_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_04_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_B_05
+  network_alias: Red B
+  x_m: 431289.3812711452
+  y_m: 4180915.9500736045
+  ground_z_m: 528.5
+  sectors:
+  - sector_id: SITE_RED_B_05_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_05_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_05_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_05_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_05_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_05_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_05_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_05_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_05_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_B_06
+  network_alias: Red B
+  x_m: 430463.31299111014
+  y_m: 4180090.6949953614
+  ground_z_m: 661.8
+  sectors:
+  - sector_id: SITE_RED_B_06_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_06_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_06_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_06_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_06_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_06_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_B_06_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_B_06_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_B_06_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_C_01
+  network_alias: Red C
+  x_m: 431595.77194194106
+  y_m: 4182810.7848196966
+  ground_z_m: 448.9
+  sectors:
+  - sector_id: SITE_RED_C_01_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_01_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_01_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_01_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_01_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_01_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_01_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_01_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_01_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_C_02
+  network_alias: Red C
+  x_m: 428853.60969327006
+  y_m: 4182390.190627478
+  ground_z_m: 466.6
+  sectors:
+  - sector_id: SITE_RED_C_02_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_02_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_02_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_02_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_02_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_02_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_02_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_02_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_02_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_C_03
+  network_alias: Red C
+  x_m: 429507.74547740805
+  y_m: 4181652.2357721026
+  ground_z_m: 506.3
+  sectors:
+  - sector_id: SITE_RED_C_03_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_03_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_03_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_03_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_03_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_03_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_03_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_03_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_03_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_C_04
+  network_alias: Red C
+  x_m: 432131.61674787913
+  y_m: 4181585.8109293003
+  ground_z_m: 500.4
+  sectors:
+  - sector_id: SITE_RED_C_04_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_04_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_04_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_04_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_04_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_04_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_04_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_04_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_04_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_C_05
+  network_alias: Red C
+  x_m: 431129.92886110506
+  y_m: 4180806.323538718
+  ground_z_m: 533.1
+  sectors:
+  - sector_id: SITE_RED_C_05_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_05_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_05_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_05_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_05_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_05_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_05_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_05_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_05_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated
+- site_id: SITE_RED_C_06
+  network_alias: Red C
+  x_m: 429975.5824333471
+  y_m: 4179706.47148063
+  ground_z_m: 732.7
+  sectors:
+  - sector_id: SITE_RED_C_06_S0
+    azimuth_deg: 0.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_06_S0_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_06_S0_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_06_S120
+    azimuth_deg: 120.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_06_S120_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_06_S120_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  - sector_id: SITE_RED_C_06_S240
+    azimuth_deg: 240.0
+    ant_height_m: 25.0
+    cells:
+    - cell_id: SITE_RED_C_06_S240_n28
+      cell_type: macro
+      band:
+        name: n28
+        n_band: 28
+        freq_ghz: 0.728
+        scs_khz: 15
+        bandwidth_mhz: 20.0
+        num_rbs: 106
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+    - cell_id: SITE_RED_C_06_S240_n78
+      cell_type: macro
+      band:
+        name: n78
+        n_band: 78
+        freq_ghz: 3.5
+        scs_khz: 30
+        bandwidth_mhz: 100.0
+        num_rbs: 273
+      antenna:
+        n_rows: 8
+        n_cols: 8
+        d_v_wavelengths: 0.5
+        d_h_wavelengths: 0.5
+        g_element_max_dbi: 8.0
+        mechanical_tilt_deg: 0.0
+        electrical_tilt_deg: 6.0
+        electrical_scan_deg: 0.0
+      tx_power_dbm: 43.0
+      cable_loss_db: 0.0
+      active: true
+      source: estimated
+  source: estimated

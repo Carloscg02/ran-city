@@ -158,6 +158,106 @@ class TestScenarioGrid:
         # Center pixel (x=0, y=0): RX directly beneath TX -> zenith = 180 deg (nadir)
         assert math.isclose(geom.zenith_gcs_deg[1, 1], 180.0, abs_tol=1e-5)
 
+    def test_scenario_grid_with_terrain_validation(self):
+        grid = ScenarioGrid.from_bounds(
+            -7.5, -7.5, 7.5, 7.5, EnvironmentType.DENSE_URBAN, ground_z_m=450.0, rx_height_m=1.5
+        )
+        assert grid.shape == (3, 3)
+        assert grid.terrain_z_m is None
+
+        # Invalid shape
+        with pytest.raises(ValueError, match="shape"):
+            grid.with_terrain(np.zeros((2, 3)))
+
+        with pytest.raises(ValueError, match="shape"):
+            grid.with_terrain(np.zeros((3, 4)))
+
+        # Invalid values: NaN or inf
+        nan_terrain = np.full((3, 3), 450.0)
+        nan_terrain[1, 1] = np.nan
+        with pytest.raises(ValueError, match="non-finite"):
+            grid.with_terrain(nan_terrain)
+
+        inf_terrain = np.full((3, 3), 450.0)
+        inf_terrain[0, 0] = np.inf
+        with pytest.raises(ValueError, match="non-finite"):
+            grid.with_terrain(inf_terrain)
+
+        neginf_terrain = np.full((3, 3), 450.0)
+        neginf_terrain[2, 2] = -np.inf
+        with pytest.raises(ValueError, match="non-finite"):
+            grid.with_terrain(neginf_terrain)
+
+        # Valid terrain
+        valid_terrain = np.full((3, 3), 500.0)
+        elevated_grid = grid.with_terrain(valid_terrain)
+        assert elevated_grid is not grid
+        assert elevated_grid.terrain_z_m is not None
+        np.testing.assert_array_equal(elevated_grid.terrain_z_m, valid_terrain)
+
+    def test_scenario_grid_with_terrain_elevation_geometry(self):
+        # Scenario representing Jaén: station at base (ground 450 m + mast 25 m = 475 m z_tx)
+        # and Cerro de Santa Catalina elevated at 800 m.
+        grid = ScenarioGrid.from_bounds(
+            -7.5, -7.5, 7.5, 7.5, EnvironmentType.DENSE_URBAN, ground_z_m=450.0, rx_height_m=1.5
+        )
+        tx = Point3D(0.0, 0.0, 475.0)
+
+        # Flat baseline: RX at 450 + 1.5 = 451.5 m. dz = 451.5 - 475 = -23.5 m.
+        geom_flat = grid.geometry_from_tx(tx)
+        assert np.all(geom_flat.zenith_gcs_deg > 90.0)
+
+        # Now elevate pixel [2, 1] (North) to 800 m (Cerro de Santa Catalina)
+        terrain = np.full((3, 3), 450.0)
+        terrain[2, 1] = 800.0
+        grid_elevated = grid.with_terrain(terrain)
+
+        geom_elevated = grid_elevated.geometry_from_tx(tx)
+
+        # Pixel [2, 1]: RX height = 800 + 1.5 = 801.5 m
+        # dz = 801.5 - 475.0 = +326.5 m (> 0)
+        # zenith < 90° (looking up towards the hill)
+        assert geom_elevated.zenith_gcs_deg[2, 1] < 90.0
+
+        # Exact d3d verification for pixel [2, 1]: dx=0, dy=5.0, dz=326.5
+        # Independent precalculated values: sqrt(5^2 + 326.5^2) = 326.53828259485904 m
+        # arccos(326.5 / 326.53828259485904) = 0.8773553017703377 deg
+        assert math.isclose(geom_elevated.d3d_m[2, 1], 326.5382826, rel_tol=1e-6)
+        assert math.isclose(geom_elevated.zenith_gcs_deg[2, 1], 0.8773553, rel_tol=1e-5)
+        # Check that d3d increased significantly compared to flat
+        assert geom_elevated.d3d_m[2, 1] > geom_flat.d3d_m[2, 1]
+
+    def test_hexagonal_domain_isolation_guardrail(self):
+        """CA-1: Core domain, antenna, and radio packages must not import I/O or GIS libraries."""
+        import ast
+        from pathlib import Path
+
+        forbidden_roots = {"rasterio", "pyproj", "yaml", "httpx"}
+        forbidden_internal = {"ran_city.geo", "ran_city.data_sources"}
+        core_Root = Path(__file__).resolve().parent.parent / "ran_city"
+
+        for pkg in ("domain", "antenna", "radio"):
+            for py_file in (core_Root / pkg).rglob("*.py"):
+                tree = ast.parse(py_file.read_text(encoding="utf-8"), filename=str(py_file))
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.Import):
+                        for alias in node.names:
+                            root = alias.name.split(".")[0]
+                            assert root not in forbidden_roots, (
+                                f"Forbidden import '{alias.name}' in {py_file}"
+                            )
+                            assert not any(
+                                alias.name.startswith(f) for f in forbidden_internal
+                            ), f"Forbidden internal adapter import '{alias.name}' in {py_file}"
+                    elif isinstance(node, ast.ImportFrom) and node.module:
+                        root = node.module.split(".")[0]
+                        assert root not in forbidden_roots, (
+                            f"Forbidden import from '{node.module}' in {py_file}"
+                        )
+                        assert not any(
+                            node.module.startswith(f) for f in forbidden_internal
+                        ), f"Forbidden internal adapter import from '{node.module}' in {py_file}"
+
     @given(
         tx_x=st.floats(min_value=-500.0, max_value=500.0),
         tx_y=st.floats(min_value=-500.0, max_value=500.0),

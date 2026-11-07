@@ -11,6 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
+from scipy.ndimage import convolve1d, gaussian_filter, gaussian_filter1d
 
 from ran_city.domain.grid import GridGeometry
 from ran_city.domain.models import CellType
@@ -38,9 +39,108 @@ class PropagationMatrix:
     loss_db: np.ndarray
     los_mask: np.ndarray
     pr_los: np.ndarray
+    shadow_fading_db: np.ndarray
 
 
 DEFAULT_CALIBRATION = CalibrationParams()
+
+
+def shadow_fading_std_db(cell_type: CellType, is_los: bool) -> float:
+    """Return shadow fading standard deviation in dB from 3GPP TR 38.901 Table 7.4.1-1.
+
+    - UMa (MACRO): 4.0 dB (LOS), 6.0 dB (NLOS)
+    - UMi - Street Canyon (MICRO / PICO): 4.0 dB (LOS), 8.2 dB (NLOS)
+    """
+    if cell_type == CellType.MACRO:
+        return 4.0 if is_los else 6.0
+    if cell_type in (CellType.MICRO, CellType.PICO):
+        return 4.0 if is_los else 8.2
+    raise ValueError(f"Unsupported cell_type: {cell_type}")
+
+
+def decorrelation_distance_m(cell_type: CellType, is_los: bool) -> float:
+    """Return shadow fading spatial decorrelation distance in meters from 3GPP TR 38.901 Table 7.5-6.
+
+    - UMa (MACRO): 37.0 m (LOS), 50.0 m (NLOS)
+    - UMi - Street Canyon (MICRO / PICO): 10.0 m (LOS), 13.0 m (NLOS)
+    """
+    if cell_type == CellType.MACRO:
+        return 37.0 if is_los else 50.0
+    if cell_type in (CellType.MICRO, CellType.PICO):
+        return 10.0 if is_los else 13.0
+    raise ValueError(f"Unsupported cell_type: {cell_type}")
+
+
+def _filter_and_renormalize_2d(
+    w: np.ndarray,
+    d_cor_m: float,
+    resolution_m: float,
+) -> np.ndarray:
+    """Apply 2D Gaussian filter and renormalize by discrete L2 norm to preserve unit variance.
+
+    Uses zero-padded boundary ('constant', cval=0.0) and normalizes each pixel (y, x)
+    by the exact separable L2 norm of the active kernel taps inside the grid bounds,
+    preventing boundary reflection correlation and guaranteeing Var[Z(y, x)] == 1.0 everywhere.
+    """
+    sigma_px = d_cor_m / float(resolution_m)
+    if sigma_px <= 1e-6:
+        return w.copy()
+    radius = max(1, int(4.0 * sigma_px + 0.5))
+    impulse = np.zeros(2 * radius + 1, dtype=float)
+    impulse[radius] = 1.0
+    k1d = gaussian_filter1d(impulse, sigma=sigma_px, mode="constant", truncate=4.0)
+    k1d_sq = k1d**2
+
+    norm_y = np.sqrt(
+        convolve1d(np.ones(w.shape[0], dtype=float), k1d_sq, mode="constant", cval=0.0)
+    )
+    norm_x = np.sqrt(
+        convolve1d(np.ones(w.shape[1], dtype=float), k1d_sq, mode="constant", cval=0.0)
+    )
+    filtered_2d = gaussian_filter(w, sigma=sigma_px, mode="constant", cval=0.0, truncate=4.0)
+    return filtered_2d / (norm_y[:, None] * norm_x[None, :])
+
+
+def sample_shadow_fading_map(
+    cell_type: CellType,
+    los_mask: np.ndarray,
+    resolution_m: float,
+    seed: int = 42,
+) -> np.ndarray:
+    """Generate a reproducible 2D spatially correlated log-normal shadow fading map in dB.
+
+    Follows 3GPP TR 38.901 Table 7.4.1-1 and Table 7.5-6.
+    """
+    if resolution_m <= 0.0:
+        raise ValueError(f"resolution_m must be strictly positive, got {resolution_m}")
+    mask = np.asarray(los_mask, dtype=bool)
+    if mask.ndim != 2:
+        raise ValueError(f"los_mask must be a 2D array, got {mask.ndim}D")
+    rng = np.random.default_rng(seed)
+
+    d_cor_los = decorrelation_distance_m(cell_type, is_los=True)
+    sigma_los = shadow_fading_std_db(cell_type, is_los=True)
+    d_cor_nlos = decorrelation_distance_m(cell_type, is_los=False)
+    sigma_nlos = shadow_fading_std_db(cell_type, is_los=False)
+
+    if np.all(mask):
+        w = rng.standard_normal(size=mask.shape)
+        z = _filter_and_renormalize_2d(w, d_cor_los, resolution_m)
+        return sigma_los * z
+
+    if not np.any(mask):
+        w = rng.standard_normal(size=mask.shape)
+        z = _filter_and_renormalize_2d(w, d_cor_nlos, resolution_m)
+        return sigma_nlos * z
+
+    w_los = rng.standard_normal(size=mask.shape)
+    w_nlos = rng.standard_normal(size=mask.shape)
+    z_los = _filter_and_renormalize_2d(w_los, d_cor_los, resolution_m)
+    z_nlos = _filter_and_renormalize_2d(w_nlos, d_cor_nlos, resolution_m)
+
+    sf_los = sigma_los * z_los
+    sf_nlos = sigma_nlos * z_nlos
+    return np.where(mask, sf_los, sf_nlos)
 
 
 def los_probability(
@@ -99,6 +199,8 @@ def compute_propagation_matrix(
     seed: int = 42,
     los_mask: np.ndarray | None = None,
     calibration: CalibrationParams = DEFAULT_CALIBRATION,
+    include_shadow_fading: bool = False,
+    resolution_m: float = 12.0,
 ) -> PropagationMatrix:
     """Compute the isotropic path loss matrix (L_prop) across a ScenarioGrid.
 
@@ -113,9 +215,11 @@ def compute_propagation_matrix(
         seed: Random seed for stochastic LOS Bernoulli trials (default: 42).
         los_mask: Optional explicit boolean LOS mask (overrides stochastic sampling).
         calibration: CalibrationParams offset and slope adjustments.
+        include_shadow_fading: Whether to synthesize and add 2D correlated shadow fading.
+        resolution_m: Grid resolution in meters for spatial filtering scale (default: 12.0).
 
     Returns:
-        PropagationMatrix containing loss_db, los_mask, and pr_los.
+        PropagationMatrix containing loss_db, los_mask, pr_los, and shadow_fading_db.
     """
     if not (0.5 <= freq_ghz <= 100.0):
         raise ValueError(f"freq_ghz must be in [0.5, 100.0] GHz, got {freq_ghz}")
@@ -123,6 +227,8 @@ def compute_propagation_matrix(
         raise ValueError(f"h_bs_m must be strictly positive, got {h_bs_m}")
     if h_ut_m < 0.0:
         raise ValueError(f"h_ut_m must be non-negative, got {h_ut_m}")
+    if resolution_m <= 0.0:
+        raise ValueError(f"resolution_m must be strictly positive, got {resolution_m}")
 
     pr_los = np.asarray(
         los_probability(grid_geom.d2d_m, cell_type=cell_type, h_ut_m=h_ut_m),
@@ -174,8 +280,20 @@ def compute_propagation_matrix(
     )
     final_loss = base_loss + cal_delta
 
+    if include_shadow_fading:
+        shadow_fading_db = sample_shadow_fading_map(
+            cell_type=cell_type,
+            los_mask=mask,
+            resolution_m=resolution_m,
+            seed=seed,
+        )
+        final_loss = final_loss + shadow_fading_db
+    else:
+        shadow_fading_db = np.zeros_like(final_loss)
+
     return PropagationMatrix(
         loss_db=final_loss,
         los_mask=mask,
         pr_los=pr_los,
+        shadow_fading_db=shadow_fading_db,
     )

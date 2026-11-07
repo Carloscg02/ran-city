@@ -53,13 +53,17 @@ class TestGcsToLcsAngles:
         # Sector facing North (az=0°), mechanical tilt beta = 10° (downtilt)
         # In front at horizon (theta_gcs=90°, az_gcs=0°):
         # In LCS, wave is coming from 10° above LCS horizon -> theta_lcs = 80°
-        theta_lcs, phi_lcs = gcs_to_lcs_angles(90.0, 0.0, sector_azimuth_deg=0.0, mechanical_tilt_deg=10.0)
+        theta_lcs, phi_lcs = gcs_to_lcs_angles(
+            90.0, 0.0, sector_azimuth_deg=0.0, mechanical_tilt_deg=10.0
+        )
         assert math.isclose(theta_lcs, 80.0, abs_tol=1e-5)
         assert math.isclose(phi_lcs, 0.0, abs_tol=1e-5)
 
         # Pointing directly at main beam (theta_gcs=100°, az_gcs=0°):
         # Downtilt beta=10° aligns with theta_gcs=100°, so in LCS theta_lcs = 90° (boresight)
-        theta_lcs, phi_lcs = gcs_to_lcs_angles(100.0, 0.0, sector_azimuth_deg=0.0, mechanical_tilt_deg=10.0)
+        theta_lcs, phi_lcs = gcs_to_lcs_angles(
+            100.0, 0.0, sector_azimuth_deg=0.0, mechanical_tilt_deg=10.0
+        )
         assert math.isclose(theta_lcs, 90.0, abs_tol=1e-5)
         assert math.isclose(phi_lcs, 0.0, abs_tol=1e-5)
 
@@ -109,9 +113,15 @@ class TestPanelGainTR38901:
 
         # Case A: Mechanical tilt = 10°, Electrical tilt = 0°
         ant_mech = AntennaConfig(
-            n_rows=8, n_cols=8, g_element_max_dbi=8.0, mechanical_tilt_deg=10.0, electrical_tilt_deg=0.0
+            n_rows=8,
+            n_cols=8,
+            g_element_max_dbi=8.0,
+            mechanical_tilt_deg=10.0,
+            electrical_tilt_deg=0.0,
         )
-        th_lcs_mech, ph_lcs_mech = gcs_to_lcs_angles(theta_gcs, az_gcs, sector_az, ant_mech.mechanical_tilt_deg)
+        th_lcs_mech, ph_lcs_mech = gcs_to_lcs_angles(
+            theta_gcs, az_gcs, sector_az, ant_mech.mechanical_tilt_deg
+        )
         # LCS boresight reached: (90°, 0°)
         gain_mech = panel_gain_dbi(th_lcs_mech, ph_lcs_mech, ant_mech)
         # No scan loss: peak gain 26.0618 dBi
@@ -119,9 +129,15 @@ class TestPanelGainTR38901:
 
         # Case B: Mechanical tilt = 0°, Electrical tilt = 10°
         ant_elec = AntennaConfig(
-            n_rows=8, n_cols=8, g_element_max_dbi=8.0, mechanical_tilt_deg=0.0, electrical_tilt_deg=10.0
+            n_rows=8,
+            n_cols=8,
+            g_element_max_dbi=8.0,
+            mechanical_tilt_deg=0.0,
+            electrical_tilt_deg=10.0,
         )
-        th_lcs_elec, ph_lcs_elec = gcs_to_lcs_angles(theta_gcs, az_gcs, sector_az, ant_elec.mechanical_tilt_deg)
+        th_lcs_elec, ph_lcs_elec = gcs_to_lcs_angles(
+            theta_gcs, az_gcs, sector_az, ant_elec.mechanical_tilt_deg
+        )
         assert math.isclose(th_lcs_elec, 100.0)
         assert math.isclose(ph_lcs_elec, 0.0)
         gain_elec = panel_gain_dbi(th_lcs_elec, ph_lcs_elec, ant_elec)

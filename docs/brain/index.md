@@ -25,4 +25,5 @@
 
 ## 3. Modulos del Sistema (`modules/`)
 Registro de fichas tecnicas de cada modulo implementado en el proyecto.
-- **[`rf-antenna-and-propagation-engine.md`](modules/rf-antenna-and-propagation-engine.md)** - Mallado `5m/12m/50m`, antenas `UPA` 3GPP TR 38.901 y matrices desacopladas de propagacion (`UMa`/`UMi`) y cobertura `SS-RSRP`.
+- **[`rf-antenna-and-propagation-engine.md`](modules/rf-antenna-and-propagation-engine.md)** - Mallado `5m/12m/50m` con relieve 3D, antenas `UPA` 3GPP TR 38.901, propagacion (`UMa`/`UMi`), *shadow fading* 2D correlado, cobertura `SS-RSRP`, ruido termico por `RE` y `SINR` co-canal en `mW`.
+- **[`jaen-gis-and-data-sources.md`](modules/jaen-gis-and-data-sources.md)** - Proyeccion `EPSG:4326 <-> EPSG:25830`, muestreo de relieve `MDT05` y fusion OpenCelliD (`MCC=214`) + mastiles OSM en `data/cities/jaen.yaml` (`Red A/B/C` sobre bloques CNAF).

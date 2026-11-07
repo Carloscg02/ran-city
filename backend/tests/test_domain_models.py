@@ -41,7 +41,9 @@ class TestDomainModels:
         with pytest.raises(ValidationError):
             NrBand(name="bad", n_band=1, freq_ghz=0.3, scs_khz=15, bandwidth_mhz=20.0, num_rbs=100)
         with pytest.raises(ValidationError):
-            NrBand(name="bad", n_band=1, freq_ghz=105.0, scs_khz=15, bandwidth_mhz=20.0, num_rbs=100)
+            NrBand(
+                name="bad", n_band=1, freq_ghz=105.0, scs_khz=15, bandwidth_mhz=20.0, num_rbs=100
+            )
 
         # SCS validation: 15, 30, 60, 120
         with pytest.raises(ValidationError):

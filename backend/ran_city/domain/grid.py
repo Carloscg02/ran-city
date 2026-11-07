@@ -60,6 +60,7 @@ class ScenarioGrid:
     ys: np.ndarray
     xx_m: np.ndarray
     yy_m: np.ndarray
+    terrain_z_m: np.ndarray | None = None
 
     @classmethod
     def from_bounds(
@@ -113,6 +114,31 @@ class ScenarioGrid:
         """Grid dimensions as (n_y, n_x)."""
         return self.xx_m.shape
 
+    def with_terrain(self, terrain_z_m: np.ndarray) -> ScenarioGrid:
+        """Return a new ScenarioGrid with updated 2D terrain elevation matrix."""
+        arr = np.asarray(terrain_z_m, dtype=float)
+        if arr.shape != self.shape:
+            raise ValueError(
+                f"terrain_z_m shape {arr.shape} does not match grid shape {self.shape}"
+            )
+        if not np.all(np.isfinite(arr)):
+            raise ValueError("terrain_z_m contains non-finite values (NaN or inf)")
+
+        return ScenarioGrid(
+            x_min=self.x_min,
+            y_min=self.y_min,
+            x_max=self.x_max,
+            y_max=self.y_max,
+            environment=self.environment,
+            ground_z_m=self.ground_z_m,
+            rx_height_m=self.rx_height_m,
+            xs=self.xs,
+            ys=self.ys,
+            xx_m=self.xx_m,
+            yy_m=self.yy_m,
+            terrain_z_m=arr,
+        )
+
     def geometry_from_tx(self, tx_pos: Point3D, min_d3d_m: float = 1.0) -> GridGeometry:
         """Compute 2D/3D distances and spherical angles (GCS) from transmitter to each cell center.
 
@@ -128,7 +154,11 @@ class ScenarioGrid:
         """
         dx = self.xx_m - tx_pos.x_m
         dy = self.yy_m - tx_pos.y_m
-        dz = (self.ground_z_m + self.rx_height_m) - tx_pos.z_m
+        if self.terrain_z_m is not None:
+            z_rx = self.terrain_z_m + self.rx_height_m
+        else:
+            z_rx = self.ground_z_m + self.rx_height_m
+        dz = z_rx - tx_pos.z_m
 
         d2d_m = np.hypot(dx, dy)
         raw_d3d = np.sqrt(d2d_m**2 + dz**2)
