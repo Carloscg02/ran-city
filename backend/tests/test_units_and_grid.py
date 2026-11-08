@@ -232,8 +232,8 @@ class TestScenarioGrid:
         import ast
         from pathlib import Path
 
-        forbidden_roots = {"rasterio", "pyproj", "yaml", "httpx"}
-        forbidden_internal = {"ran_city.geo", "ran_city.data_sources"}
+        forbidden_roots = {"rasterio", "pyproj", "yaml", "httpx", "fastapi", "PIL"}
+        forbidden_internal = {"ran_city.geo", "ran_city.data_sources", "ran_city.api"}
         core_Root = Path(__file__).resolve().parent.parent / "ran_city"
 
         for pkg in ("domain", "antenna", "radio"):

@@ -27,3 +27,4 @@
 Registro de fichas tecnicas de cada modulo implementado en el proyecto.
 - **[`rf-antenna-and-propagation-engine.md`](modules/rf-antenna-and-propagation-engine.md)** - Mallado `5m/12m/50m` con relieve 3D, antenas `UPA` 3GPP TR 38.901, propagacion (`UMa`/`UMi`), *shadow fading* 2D correlado, cobertura `SS-RSRP`, ruido termico por `RE` y `SINR` co-canal en `mW`.
 - **[`jaen-gis-and-data-sources.md`](modules/jaen-gis-and-data-sources.md)** - Proyeccion `EPSG:4326 <-> EPSG:25830`, muestreo de relieve `MDT05` y fusion OpenCelliD (`MCC=214`) + mastiles OSM en `data/cities/jaen.yaml` (`Red A/B/C` sobre bloques CNAF).
+- **[`raster-whatif-and-fastapi-adapter.md`](modules/raster-whatif-and-fastapi-adapter.md)** - Motor inmutable *What-If*, codificador raster `PNG` RGBA (`deck.gl BitmapLayer`) y API HTTP `FastAPI` (`/api/cities/jaen`, `/coverage`, `/inspect-point`, `/antenna/pattern`).
